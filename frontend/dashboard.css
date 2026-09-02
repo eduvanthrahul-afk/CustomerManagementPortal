@@ -1,0 +1,419 @@
+/* ==========================================================================
+   COMMAND CENTER DASHBOARD STYLES
+   ========================================================================== */
+
+.dashboard-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ==========================================================================
+   HERO CARD: "Revenue asking for attention"
+   ========================================================================== */
+
+.hero-metric-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--clay), var(--sun));
+}
+
+.hero-header-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.65rem;
+}
+
+.hero-label {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--clay);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.hero-label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--clay);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.7; }
+}
+
+.hero-amount-display {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-amount-number {
+  font-family: var(--font-serif);
+  font-size: 2.85rem;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.hero-amount-caption {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Sub-metrics breakdown grid */
+.hero-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.breakdown-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-right: 0.75rem;
+  border-right: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.breakdown-item:last-child {
+  border-right: none;
+}
+
+.breakdown-item:hover {
+  transform: translateY(-2px);
+}
+
+.breakdown-item-title {
+  font-size: 0.74rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.breakdown-item-val {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--dark);
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.breakdown-item-sub {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted-light);
+}
+
+/* ==========================================================================
+   PIPELINE STEP TRACKER
+   ========================================================================== */
+
+.pipeline-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-xs);
+}
+
+.pipeline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.pipeline-steps-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.pipeline-steps-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 30px;
+  right: 30px;
+  height: 2px;
+  background-color: var(--border);
+  z-index: 1;
+}
+
+.pipeline-step-item {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  background: var(--paper);
+  padding: 0 0.5rem;
+  transition: transform var(--transition-fast);
+}
+
+.pipeline-step-item:hover {
+  transform: translateY(-2px);
+}
+
+.step-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--paper-subtle);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--dark);
+  transition: all var(--transition-fast);
+}
+
+.pipeline-step-item:hover .step-circle {
+  border-color: var(--green);
+  background: var(--green-subtle);
+  color: var(--green);
+}
+
+.step-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.step-count-pill {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  background: var(--cream);
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+}
+
+/* ==========================================================================
+   DASHBOARD 2-COLUMN SECTION
+   ========================================================================== */
+
+.dashboard-split-grid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.dashboard-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Needs Your Decision Cards */
+.decision-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.decision-item-box {
+  background: var(--cream-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  transition: all var(--transition-fast);
+}
+
+.decision-item-box:hover {
+  background: var(--paper);
+  border-color: #d1c8ba;
+  box-shadow: var(--shadow-sm);
+}
+
+.decision-top-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.decision-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.decision-reason-text {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.decision-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.45rem;
+  border-top: 1px dashed var(--border);
+}
+
+.decision-amount {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+/* Movement Today Timeline */
+.movement-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  position: relative;
+}
+
+.movement-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.movement-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.movement-icon-box {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--paper-subtle);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.movement-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.movement-title {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.movement-desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.movement-time {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted-light);
+}
+
+/* On the Ground Schedule */
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.schedule-row-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  background: var(--paper-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.schedule-row-card:hover {
+  background: var(--paper);
+  border-color: #d8cfc0;
+}
+
+.schedule-customer-time {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.schedule-time-badge {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-xs);
+  color: var(--dark);
+  white-space: nowrap;
+}
+
+.schedule-name-location {
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule-name {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.schedule-location {
+  font-size: 0.76rem;
+  color: var(--muted);
+}

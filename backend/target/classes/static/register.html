@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account — Verdant CRM</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/auth.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body class="auth-page">
+
+  <div class="auth-container">
+    <div class="auth-brand-panel">
+      <div class="auth-brand-header">
+        <div class="brand-icon">V</div>
+        <div class="brand-title">VERDANT</div>
+      </div>
+
+      <div class="auth-narrative-quote">
+        <h2>Join our shared client execution workspace.</h2>
+        <p>Coordinate field surveys, streamline customer pipelines, and safeguard operational margins across every active project.</p>
+      </div>
+
+      <div class="auth-credentials-hint">
+        <div style="font-weight: 600; margin-bottom: 0.3rem; color: #ffffff;">System Roles:</div>
+        <div><strong>ADMIN:</strong> Unrestricted visibility, user governance &amp; global records.</div>
+        <div><strong>STAFF:</strong> Opportunity pipeline, surveys, quotes &amp; projects.</div>
+      </div>
+    </div>
+
+    <div class="auth-form-panel">
+      <div class="auth-form-header">
+        <h1>Create Account</h1>
+        <p class="text-muted">Register your organizational user profile.</p>
+      </div>
+
+      <div id="auth-alert" class="auth-alert-box auth-alert-error"></div>
+
+      <form id="register-form" class="auth-form" onsubmit="handleRegister(event)">
+        <div class="form-group">
+          <label class="form-label" for="reg-name">Full Name <span class="required-mark">*</span></label>
+          <input type="text" id="reg-name" class="form-input" placeholder="e.g. Julian Montgomery" required autofocus>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-email">Work Email <span class="required-mark">*</span></label>
+          <input type="email" id="reg-email" class="form-input" placeholder="julian@verdantcrm.com" required>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="reg-title">Job Title</label>
+            <input type="text" id="reg-title" class="form-input" placeholder="Project Engineer">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-role">Access Role</label>
+            <select id="reg-role" class="form-select">
+              <option value="STAFF">STAFF (Field & Solutions)</option>
+              <option value="ADMIN">ADMIN (Executive)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-password">Password <span class="required-mark">*</span></label>
+          <input type="password" id="reg-password" class="form-input" placeholder="At least 6 characters" required minlength="6">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-confirm-password">Confirm Password <span class="required-mark">*</span></label>
+          <input type="password" id="reg-confirm-password" class="form-input" placeholder="Re-enter password" required minlength="6">
+        </div>
+
+        <button type="submit" id="btn-reg-submit" class="btn btn-primary btn-lg" style="margin-top: 0.5rem; width: 100%;">
+          Create Account &amp; Access Dashboard
+        </button>
+      </form>
+
+      <div class="auth-footer-links">
+        Already have an account? <a href="/login.html">Sign In</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/toast.js"></script>
+  <script src="/js/auth.js"></script>
+  <script>
+    async function handleRegister(e) {
+      e.preventDefault();
+      const fullName = document.getElementById('reg-name').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+      const title = document.getElementById('reg-title').value.trim();
+      const role = document.getElementById('reg-role').value;
+      const password = document.getElementById('reg-password').value;
+      const confirmPassword = document.getElementById('reg-confirm-password').value;
+      const alertBox = document.getElementById('auth-alert');
+      const submitBtn = document.getElementById('btn-reg-submit');
+
+      alertBox.classList.remove('active');
+
+      if (password !== confirmPassword) {
+        alertBox.textContent = 'Passwords do not match.';
+        alertBox.classList.add('active');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Creating account...';
+
+      try {
+        await Auth.register(fullName, email, password, role);
+        Toast.success('Account created successfully!');
+        setTimeout(() => {
+          window.location.href = '/index.html';
+        }, 300);
+      } catch (err) {
+        alertBox.textContent = err.message || 'Registration failed';
+        alertBox.classList.add('active');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Create Account & Access Dashboard';
+      }
+    }
+  </script>
+</body>
+</html>

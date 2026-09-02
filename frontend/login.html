@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — Verdant CRM</title>
+  
+  <!-- Google Fonts: Newsreader (Serif) & Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/auth.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body class="auth-page">
+
+  <div class="auth-container">
+    <!-- Brand Manifesto Panel -->
+    <div class="auth-brand-panel">
+      <div class="auth-brand-header">
+        <div class="brand-icon">V</div>
+        <div class="brand-title">VERDANT</div>
+      </div>
+
+      <div class="auth-narrative-quote">
+        <h2>Built for precision operations & high-value client workflows.</h2>
+        <p>From initial inbound discovery and site laser surveys to low-margin proposal verification and milestone collections.</p>
+      </div>
+
+      <div class="auth-credentials-hint">
+        <div style="font-weight: 600; margin-bottom: 0.3rem; color: #ffffff;">Demo Credentials:</div>
+        <div>Admin: <code>admin@verdantcrm.com</code> / <code>Admin@123</code></div>
+        <div style="margin-top: 0.2rem;">Staff: <code>sarah.chen@verdantcrm.com</code> / <code>Staff@123</code></div>
+      </div>
+    </div>
+
+    <!-- Sign In Form Panel -->
+    <div class="auth-form-panel">
+      <div class="auth-form-header">
+        <h1>Welcome Back</h1>
+        <p class="text-muted">Sign in with your organizational credentials.</p>
+      </div>
+
+      <div id="auth-alert" class="auth-alert-box auth-alert-error"></div>
+
+      <form id="login-form" class="auth-form" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label class="form-label" for="login-email">Work Email</label>
+          <input type="email" id="login-email" class="form-input" placeholder="name@company.com" required autocomplete="email" autofocus>
+        </div>
+
+        <div class="form-group">
+          <div class="flex justify-between items-center">
+            <label class="form-label" for="login-password">Password</label>
+            <a href="#" style="font-size: 0.74rem; color: var(--muted); text-decoration: underline;" onclick="Toast.info('Contact system admin for password resets.'); return false;">Forgot?</a>
+          </div>
+          <input type="password" id="login-password" class="form-input" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+
+        <button type="submit" id="btn-login-submit" class="btn btn-primary btn-lg" style="margin-top: 0.5rem; width: 100%;">
+          Sign In to Workspace
+        </button>
+      </form>
+
+      <div class="auth-footer-links">
+        Don't have an account? <a href="/register.html">Create an Account</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/toast.js"></script>
+  <script src="/js/auth.js"></script>
+  <script>
+    // Redirect if already logged in
+    if (API.getToken()) {
+      window.location.href = '/index.html';
+    }
+
+    async function handleLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+      const alertBox = document.getElementById('auth-alert');
+      const submitBtn = document.getElementById('btn-login-submit');
+
+      alertBox.classList.remove('active');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Verifying credentials...';
+
+      try {
+        await Auth.login(email, password);
+        Toast.success('Welcome back!');
+        setTimeout(() => {
+          window.location.href = '/index.html';
+        }, 300);
+      } catch (err) {
+        alertBox.textContent = err.message || 'Invalid email or password';
+        alertBox.classList.add('active');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Sign In to Workspace';
+      }
+    }
+  </script>
+</body>
+</html>

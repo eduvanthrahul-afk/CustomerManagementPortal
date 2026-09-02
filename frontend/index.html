@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verdant CRM — Executive Command Center</title>
+
+  <!-- Google Fonts: Newsreader (Display Serif), Plus Jakarta Sans (Body), JetBrains Mono (Codes) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="/css/analytics.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+
+  <!-- Chart.js Engine -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div class="app-wrapper">
+
+    <!-- ==========================================================================
+         SIDEBAR (Dark Charcoal / Moss)
+         ========================================================================== -->
+    <aside class="app-sidebar" id="app-sidebar">
+      <div class="sidebar-header">
+        <div class="brand-wrapper">
+          <div class="brand-icon">V</div>
+          <div class="brand-info">
+            <span class="brand-title">VERDANT</span>
+            <span class="brand-subtitle">Commercial Ops</span>
+          </div>
+        </div>
+
+        <div class="workspace-selector" title="Switch organization workspace">
+          <span class="workspace-name">Bay Area Commercial</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9cb0a4" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <!-- OVERVIEW -->
+        <div class="nav-section">
+          <div class="nav-section-title">Overview</div>
+          <div class="nav-items">
+            <a href="#dashboard" class="nav-item active" data-view="dashboard">
+              <div class="nav-item-content">
+                <span class="nav-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </span>
+                <span>Command Center</span>
+              </div>
+            </a>
+
+            <a href="#analytics" class="nav-item" data-view="analytics">
+              <div class="nav-item-content">
+                <span class="nav-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </span>
+                <span>Growth &amp; Analytics</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- FLOW -->
+        <div class="nav-section">
+          <div class="nav-section-title">Flow</div>
+          <div class="nav-items">
+            <a href="#leads" class="nav-item" data-view="leads">
+              <div class="nav-item-content">
+                <span class="nav-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7.5" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+                </span>
+                <span>Leads</span>
+              </div>
+            </a>
+
+            <a href="#surveys" class="nav-item" data-view="surveys">
+              <div class="nav-item-content">
+                <span class="nav-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </span>
+                <span>Site Surveys</span>
+              </div>
+            </a>
+
+            <a href="#quotes" class="nav-item" data-view="quotes">
+              <div class="nav-item-content">
+                <span class="nav-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </span>
+                <span>Quotes</span>
+              </div>
+            </a>
+
+            <a href="#projects" class="nav-item" data-view="projects">
+              <div class="nav-item-content">
+                <span class="nav-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </span>
+                <span>Projects</span>
+              </div>
+            </a>
+
+            <a href="#payments" class="nav-item" data-view="payments">
+              <div class="nav-item-content">
+                <span class="nav-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                </span>
+                <span>Payments</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- AFTERCARE -->
+        <div class="nav-section">
+          <div class="nav-section-title">Aftercare</div>
+          <div class="nav-items">
+            <a href="#customers" class="nav-item" data-view="customers">
+              <div class="nav-item-content">
+                <span class="nav-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </span>
+                <span>Customers</span>
+              </div>
+            </a>
+
+            <a href="#service" class="nav-item" data-view="service">
+              <div class="nav-item-content">
+                <span class="nav-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </span>
+                <span>Service &amp; Warranty</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Sidebar Bottom & User Profile -->
+      <div class="sidebar-footer">
+        <div class="user-profile-card">
+          <div class="user-avatar-meta">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Avatar" class="user-avatar user-avatar-display">
+            <div class="user-text-info">
+              <span class="user-name user-name-display">Loading...</span>
+              <span class="user-role-tag user-role-display">STAFF</span>
+            </div>
+          </div>
+          <button class="btn-logout" title="Sign out" onclick="Auth.logout()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==========================================================================
+         MAIN VIEWPORT
+         ========================================================================== -->
+    <main class="app-main">
+
+      <!-- TOP BAR -->
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button class="btn-mobile-menu" id="btn-mobile-sidebar" aria-label="Toggle menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div class="page-title-group">
+            <span class="breadcrumb-label" id="topbar-breadcrumb">Overview</span>
+            <h1 class="current-page-heading" id="topbar-page-title">Command Center</h1>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Omni Search Input -->
+          <div class="search-input-wrapper">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="global-search-input" class="search-input" placeholder="Search CRM records..." autocomplete="off">
+            <span class="search-kbd">/</span>
+            <div id="global-search-results" class="global-search-menu"></div>
+          </div>
+
+          <!-- Contextual Action Button -->
+          <button class="btn btn-primary" id="topbar-primary-action">+ New Lead</button>
+        </div>
+      </header>
+
+      <!-- PAGE CONTENT SECTIONS -->
+      <div class="page-container">
+
+        <!-- ==========================================================================
+             VIEW: COMMAND CENTER DASHBOARD
+             ========================================================================== -->
+        <section id="view-dashboard" class="view-section active-view">
+          <div class="dashboard-grid">
+
+            <!-- Hero Card: "Revenue asking for attention" -->
+            <div class="hero-metric-card">
+              <div class="hero-header-meta">
+                <span class="hero-label">Revenue asking for attention</span>
+                <span class="badge badge-clay">Attention Required</span>
+              </div>
+
+              <div class="hero-amount-display">
+                <span class="hero-amount-number" id="dash-hero-amount">$0.00</span>
+                <span class="hero-amount-caption">total exposure across delayed projects, unfollowed quotes &amp; overdue receivables</span>
+              </div>
+
+              <!-- Breakdown Metrics -->
+              <div class="hero-breakdown-grid">
+                <div class="breakdown-item" onclick="App.navigateTo('quotes', 'status=SENT')">
+                  <span class="breakdown-item-title">Unfollowed Quotes</span>
+                  <div class="breakdown-item-val">
+                    <span id="metric-unfollowed-quotes">0</span>
+                  </div>
+                  <span class="breakdown-item-sub" id="metric-unfollowed-amount">$0.00</span>
+                </div>
+
+                <div class="breakdown-item" onclick="App.navigateTo('leads', 'status=NEW')">
+                  <span class="breakdown-item-title">Leads Not Contacted</span>
+                  <div class="breakdown-item-val">
+                    <span id="metric-uncontacted-leads">0</span>
+                  </div>
+                  <span class="breakdown-item-sub">Pending outreach</span>
+                </div>
+
+                <div class="breakdown-item" onclick="App.navigateTo('payments', 'status=OVERDUE')">
+                  <span class="breakdown-item-title">Overdue Payments</span>
+                  <div class="breakdown-item-val text-clay">
+                    <span id="metric-overdue-payments">0</span>
+                  </div>
+                  <span class="breakdown-item-sub" id="metric-overdue-amount">$0.00</span>
+                </div>
+
+                <div class="breakdown-item" onclick="App.navigateTo('projects', 'status=DELAYED')">
+                  <span class="breakdown-item-title">Delayed Projects</span>
+                  <div class="breakdown-item-val text-clay">
+                    <span id="metric-delayed-projects">0</span>
+                  </div>
+                  <span class="breakdown-item-sub" id="metric-delayed-amount">$0.00</span>
+                </div>
+
+                <div class="breakdown-item" onclick="App.navigateTo('quotes')">
+                  <span class="breakdown-item-title">Low-Margin Quotes</span>
+                  <div class="breakdown-item-val text-sun">
+                    <span id="metric-low-margin">0</span>
+                  </div>
+                  <span class="breakdown-item-sub">&lt; 15% threshold</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CRM Pipeline Tracker -->
+            <div class="pipeline-card">
+              <div class="pipeline-header">
+                <div>
+                  <h3 class="card-title">Commercial Pipeline Velocity</h3>
+                  <p style="font-size: 0.8rem;">Click any stage to filter active deals and operations.</p>
+                </div>
+                <span class="badge badge-neutral">Real-Time</span>
+              </div>
+
+              <div class="pipeline-steps-wrapper" id="dash-pipeline-steps">
+                <!-- Populated dynamically by dashboard.js -->
+              </div>
+            </div>
+
+            <!-- 2-Column Split: Operations & Decisions -->
+            <div class="dashboard-split-grid">
+
+              <!-- Left Column -->
+              <div class="dashboard-col">
+                <!-- Movement Today -->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Movement Today</h3>
+                    <span class="text-mono text-muted" style="font-size: 0.76rem;">Activity Stream</span>
+                  </div>
+                  <div class="card-body">
+                    <div class="movement-timeline" id="dash-movement-timeline">
+                      <!-- Populated dynamically -->
+                    </div>
+                  </div>
+                </div>
+
+                <!-- On the Ground Schedule -->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">On the Ground</h3>
+                    <span class="text-mono text-muted" style="font-size: 0.76rem;">Field Schedule</span>
+                  </div>
+                  <div class="card-body">
+                    <div class="schedule-list" id="dash-schedule-list">
+                      <!-- Populated dynamically -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Column -->
+              <div class="dashboard-col">
+                <!-- Needs Your Decision -->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Needs Your Decision</h3>
+                    <span class="badge badge-clay">Action Required</span>
+                  </div>
+                  <div class="card-body">
+                    <div class="decision-card-list" id="dash-decisions-list">
+                      <!-- Populated dynamically -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ==========================================================================
+             VIEW: GROWTH & ANALYTICS INTELLIGENCE
+             ========================================================================== -->
+        <section id="view-analytics" class="view-section">
+          <div class="analytics-container">
+
+            <!-- Top Header & Timeframe Filter Bar -->
+            <div class="analytics-header-bar">
+              <div class="analytics-header-info">
+                <h2>Revenue Growth &amp; Performance Trends</h2>
+                <p>Real-time commercial intelligence, linear regression trendlines, conversion funnels &amp; aging risk</p>
+              </div>
+
+              <div class="timeframe-pill-group">
+                <button type="button" class="timeframe-pill active" data-timeframe="all" onclick="Analytics.setTimeframe('all')">All Time</button>
+                <button type="button" class="timeframe-pill" data-timeframe="ytd" onclick="Analytics.setTimeframe('ytd')">YTD</button>
+                <button type="button" class="timeframe-pill" data-timeframe="quarter" onclick="Analytics.setTimeframe('quarter')">This Quarter</button>
+                <button type="button" class="timeframe-pill" data-timeframe="30d" onclick="Analytics.setTimeframe('30d')">Last 30 Days</button>
+              </div>
+            </div>
+
+            <!-- Executive Growth KPI Grid -->
+            <div class="growth-kpi-grid">
+              <div class="growth-kpi-card kpi-primary">
+                <div class="kpi-top-row">
+                  <span class="kpi-label">Gross Pipeline</span>
+                  <span class="kpi-delta-pill positive">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="18 15 12 9 6 15"/></svg>
+                    +18.4%
+                  </span>
+                </div>
+                <div class="kpi-value-display" id="kpi-gross-pipeline">$0</div>
+                <span class="kpi-caption">Active leads &amp; outstanding proposals</span>
+              </div>
+
+              <div class="growth-kpi-card kpi-sun">
+                <div class="kpi-top-row">
+                  <span class="kpi-label">Monthly Realized</span>
+                  <span class="kpi-delta-pill positive">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="18 15 12 9 6 15"/></svg>
+                    +14.8% MoM
+                  </span>
+                </div>
+                <div class="kpi-value-display" id="kpi-revenue-realized">$0</div>
+                <span class="kpi-caption">Cash collected in current cycle</span>
+              </div>
+
+              <div class="growth-kpi-card kpi-blue">
+                <div class="kpi-top-row">
+                  <span class="kpi-label">Win Rate</span>
+                  <span class="kpi-delta-pill positive">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="18 15 12 9 6 15"/></svg>
+                    +5.2%
+                  </span>
+                </div>
+                <div class="kpi-value-display" id="kpi-win-rate">0%</div>
+                <span class="kpi-caption">Closed won vs closed lost ratio</span>
+              </div>
+
+              <div class="growth-kpi-card kpi-clay">
+                <div class="kpi-top-row">
+                  <span class="kpi-label">Deal Velocity</span>
+                  <span class="kpi-delta-pill neutral">Target: &lt; 20d</span>
+                </div>
+                <div class="kpi-value-display" id="kpi-deal-velocity">0 Days</div>
+                <span class="kpi-caption">Lead creation to contract signature</span>
+              </div>
+            </div>
+
+            <!-- Top Row: Revenue Trendline Chart & Pipeline Funnel -->
+            <div class="analytics-chart-grid-2col">
+              <!-- Revenue Trendline Chart -->
+              <div class="chart-card">
+                <div class="chart-header">
+                  <div class="chart-title-area">
+                    <h3>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                      Revenue Realization &amp; Trendline Trajectory
+                    </h3>
+                    <p>Historical monthly billing vs collections with linear regression trend projection</p>
+                  </div>
+                  <div class="chart-legend-custom">
+                    <span><span class="legend-dot" style="background:#c55a38;"></span>Trendline</span>
+                    <span><span class="legend-dot" style="background:#2c593f;"></span>Collected</span>
+                    <span><span class="legend-dot" style="background:#cb9229;"></span>Invoiced</span>
+                  </div>
+                </div>
+                <div class="chart-canvas-container tall">
+                  <canvas id="canvas-revenue-trends"></canvas>
+                </div>
+              </div>
+
+              <!-- Pipeline Conversion Velocity Funnel -->
+              <div class="chart-card">
+                <div class="chart-header">
+                  <div class="chart-title-area">
+                    <h3>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--sun)" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                      Pipeline Conversion Velocity
+                    </h3>
+                    <p>Stage-by-stage dropoff and overall conversion rate</p>
+                  </div>
+                </div>
+                <div class="funnel-step-list" id="funnel-stages-container">
+                  <!-- Rendered dynamically -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Row: Deal Win/Loss & AR Aging Risk -->
+            <div class="analytics-chart-grid-even">
+              <!-- Win / Loss Diagnostics -->
+              <div class="chart-card">
+                <div class="chart-header">
+                  <div class="chart-title-area">
+                    <h3>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/></svg>
+                      Win / Loss Ratio &amp; Diagnostics
+                    </h3>
+                    <p>Outcome distribution and primary lost deal factors</p>
+                  </div>
+                </div>
+                <div class="chart-canvas-container" style="height: 190px;">
+                  <canvas id="canvas-win-loss"></canvas>
+                </div>
+                <div class="loss-reasons-list" id="loss-reasons-container">
+                  <!-- Rendered dynamically -->
+                </div>
+              </div>
+
+              <!-- Accounts Receivable Overdue Aging Risk -->
+              <div class="chart-card">
+                <div class="chart-header">
+                  <div class="chart-title-area">
+                    <h3>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--clay)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                      AR Overdue Aging Buckets
+                    </h3>
+                    <p>Cash risk exposure segmented by delinquency stages</p>
+                  </div>
+                </div>
+                <div class="aging-buckets-row" id="aging-buckets-cards-container">
+                  <!-- Rendered dynamically -->
+                </div>
+                <div class="chart-canvas-container" style="height: 160px; margin-top: 1rem;">
+                  <canvas id="canvas-aging-chart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Full-width: Gross Margin Trajectory -->
+            <div class="chart-card">
+              <div class="chart-header">
+                <div class="chart-title-area">
+                  <h3>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    Gross Margin % Health vs. Target Baseline (25%)
+                  </h3>
+                  <p>Historical commercial profitability across executed client proposals</p>
+                </div>
+              </div>
+              <div class="chart-canvas-container" style="height: 220px;">
+                <canvas id="canvas-margin-health"></canvas>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ==========================================================================
+             VIEW: LEADS
+             ========================================================================== -->
+        <section id="view-leads" class="view-section">
+          <div class="table-container">
+            <div class="table-toolbar">
+              <div class="toolbar-filters">
+                <div class="table-search-box">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="text" class="table-search-input" placeholder="Search leads by name, company..." oninput="Leads.search(this.value)">
+                </div>
+
+                <select id="leads-filter-status" class="table-select" onchange="Leads.filterStatus(this.value)">
+                  <option value="">All Statuses</option>
+                  <option value="NEW">New</option>
+                  <option value="CONTACTED">Contacted</option>
+                  <option value="QUALIFIED">Qualified</option>
+                  <option value="SURVEY_SCHEDULED">Survey Scheduled</option>
+                  <option value="QUOTE_SENT">Quote Sent</option>
+                  <option value="WON">Won</option>
+                  <option value="LOST">Lost</option>
+                </select>
+              </div>
+
+              <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <button class="btn btn-secondary btn-sm" onclick="DataPortability.exportToCSV('leads', Leads.data ? Leads.data.content : [])" title="Export all visible leads to CSV">Export CSV</button>
+                <button class="btn btn-secondary btn-sm" onclick="DataPortability.openImportModal('leads')" title="Import leads from CSV file">Import CSV</button>
+                <button class="btn btn-primary btn-sm" onclick="Leads.openCreateModal()">+ Create Lead</button>
+              </div>
+            </div>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width: 38px; text-align: center;">
+                    <input type="checkbox" class="select-all-checkbox" onchange="DataPortability.toggleSelectAll(this, 'leads-table-body')">
+                  </th>
+                  <th>Lead Code</th>
+                  <th>Contact / Company</th>
+                  <th>Status</th>
+                  <th>Est. Value</th>
+                  <th>Source</th>
+                  <th>Assigned Staff</th>
+                  <th style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="leads-table-body">
+                <!-- Leads populated dynamically -->
+              </tbody>
+            </table>
+
+            <div class="table-pagination" id="leads-pagination"></div>
+          </div>
+        </section>
+
+        <!-- ==========================================================================
+             VIEW: SITE SURVEYS
+             ========================================================================== -->
+        <section id="view-surveys" class="view-section">
+          <div class="table-container">
+            <div class="table-toolbar">
+              <div class="toolbar-filters">
+                <div class="table-search-box">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="text" class="table-search-input" placeholder="Search surveys by address or client..." oninput="Surveys.search(this.value)">
+                </div>
+
+                <select id="surveys-filter-status" class="table-select" onchange="Surveys.filterStatus(this.value)">
+                  <option value="">All Statuses</option>
+                  <option value="SCHEDULED">Scheduled</option>
+                  <option value="COMPLETED">Completed</option>
+                  <option value="CANCELLED">Cancelled</option>
+                </select>
+              </div>
+
+              <button class="btn btn-primary btn-sm" onclick="Surveys.openCreateModal()">+ Schedule Survey</button>
+            </div>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Survey Code</th>
+                  <th>Customer &amp; Site Address</th>
+                  <th>Appointment Date/Time</th>
+                  <th>Status</th>
+                  <th>Field Specialist</th>
+                  <th style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="surveys-table-body"></tbody>
+            </table>
+
+            <div class="table-pagination" id="surveys-pagination"></div>
+          </div>
+        </section>
+
+        <!-- ==========================================================================
+             VIEW: QUOTES
+             ========================================================================== -->
+        <section id="view-quotes" class="view-section">
+          <div class="table-container">
+            <div class="table-toolbar">
+              <div class="toolbar-filters">
+                <div class="table-search-box">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="text" class="table-search-input" placeholder="Search quotes by proposal #, client..." oninput="Quotes.search(this.value)">
+                </div>
+
+                <select id="quotes-filter-status" class="table-select" onchange="Quotes.filterStatus(this.value)">
+                  <option value="">All Statuses</option>
+                  <option value="DRAFT">Draft</option>
+                  <option value="SENT">Sent</option>
+                  <option value="VIEWED">Viewed</option>
+                  <option value="ACCEPTED">Accepted</option>
+                  <option value="REJECTED">Rejected</option>
+                  <option value="EXPIRED">Expired</option>
+                </select>
+              </div>
+
+              <button class="btn btn-primary btn-sm" onclick="Quotes.openCreateModal()">+ Create Quote</button>
+            </div>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Quote #</th>
+                  <th>Customer &amp; Project Type</th>
+                  <th>Amount</th>
+                  <th>Cost</th>
+                  <th>Margin %</th>
+                  <th>Status</th>
+                  <th>Valid Until</th>
+                  <th style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="quotes-table-body"></tbody>
+            </table>
+
+            <div class="table-pagination" id="quotes-pagination"></div>
+          </div>
+        </section>
+
+        <!-- ==========================================================================
+             VIEW: PROJECTS
+             ========================================================================== -->
+        <section id="view-projects" class="view-section">
+          <div class="table-container">
+            <div class="table-toolbar">
+              <div class="toolbar-filters">
+                <div class="table-search-box">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="text" class="table-search-input" placeholder="Search projects by name, number..." oninput="Projects.search(this.value)">
+                </div>
+
+                <select id="projects-filter-status" class="table-select" onchange="Projects.filterStatus(this.value)">
+                  <option value="">All Statuses</option>
+                  <option value="PLANNED">Planned</option>
+                  <option value="IN_PROGRESS">In Progress</option>
+                  <option value="DELAYED">Delayed</option>
+                  <option value="COMPLETED">Completed</option>
+                  <option value="CANCELLED">Cancelled</option>
+                </select>
+              </div>
+
+              <button class="btn btn-primary btn-sm" onclick="Projects.openCreateModal()">+ Create Project</button>
+            </div>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Project #</th>
+                  <th>Project Name &amp; Client</th>
+                  <th>Status</th>
+                  <th style="min-width: 140px;">Progress</th>
+                  <th>Budget</th>
+                  <th>Delivery Date</th>
+                  <th style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="projects-table-body"></tbody>
+            </table>
+
+            <div class="table-pagination" id="projects-pagination"></div>
+          </div>
+        </section>
+
+        <!-- ==========================================================================
+             VIEW: PAYMENTS
+             ========================================================================== -->
+        <section id="view-payments" class="view-section">
+          <div class="table-container">
+            <div class="table-toolbar">
+              <div class="toolbar-filters">
+                <div class="table-search-box">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="text" class="table-search-input" placeholder="Search invoices by invoice code, ref..." oninput="Payments.search(this.value)">
+                </div>
+
+                <select id="payments-filter-status" class="table-select" onchange="Payments.filterStatus(this.value)">
+                  <option value="">All Statuses</option>
+                  <option value="PENDING">Pending</option>
+                  <option value="DUE">Due</option>
+                  <option value="PAID">Paid</option>
+                  <option value="OVERDUE">Overdue</option>
+                </select>
+              </div>
+
+              <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <button class="btn btn-secondary btn-sm" onclick="DataPortability.exportToCSV('payments', Payments.data ? Payments.data.content : [])" title="Export invoices to CSV">Export CSV</button>
+                <button class="btn btn-secondary btn-sm" onclick="DataPortability.openImportModal('payments')" title="Import invoices from CSV">Import CSV</button>
+                <button class="btn btn-primary btn-sm" onclick="Payments.openCreateModal()">+ Issue Invoice</button>
+              </div>
+            </div>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width: 38px; text-align: center;">
+                    <input type="checkbox" class="select-all-checkbox" onchange="DataPortability.toggleSelectAll(this, 'payments-table-body')">
+                  </th>
+                  <th>Payment Code</th>
+                  <th>Client Account</th>
+                  <th>Amount</th>
+                  <th>Due Date</th>
+                  <th>Status</th>
+                  <th>Method</th>
+                  <th style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="payments-table-body"></tbody>
+            </table>
+
+            <div class="table-pagination" id="payments-pagination"></div>
+          </div>
+        </section>
+
+        <!-- ==========================================================================
+             VIEW: CUSTOMERS
+             ========================================================================== -->
+        <section id="view-customers" class="view-section">
+          <div class="table-container">
+            <div class="table-toolbar">
+              <div class="toolbar-filters">
+                <div class="table-search-box">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="text" class="table-search-input" placeholder="Search client portfolio..." oninput="Customers.search(this.value)">
+                </div>
+
+                <select id="customers-filter-status" class="table-select" onchange="Customers.filterStatus(this.value)">
+                  <option value="">All Statuses</option>
+                  <option value="ACTIVE">Active Accounts</option>
+                  <option value="INACTIVE">Inactive</option>
+                  <option value="LEAD">Prospect</option>
+                </select>
+              </div>
+
+              <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <button class="btn btn-secondary btn-sm" onclick="DataPortability.exportToCSV('customers', Customers.data ? Customers.data.content : [])" title="Export customer accounts to CSV">Export CSV</button>
+                <button class="btn btn-secondary btn-sm" onclick="DataPortability.openImportModal('customers')" title="Import customers from CSV">Import CSV</button>
+                <button class="btn btn-primary btn-sm" onclick="Customers.openCreateModal()">+ Add Customer</button>
+              </div>
+            </div>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width: 38px; text-align: center;">
+                    <input type="checkbox" class="select-all-checkbox" onchange="DataPortability.toggleSelectAll(this, 'customers-table-body')">
+                  </th>
+                  <th>Account Code</th>
+                  <th>Customer Name &amp; Company</th>
+                  <th>Email / Phone</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                  <th>Lifetime Value</th>
+                  <th style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="customers-table-body"></tbody>
+            </table>
+
+            <div class="table-pagination" id="customers-pagination"></div>
+          </div>
+        </section>
+
+        <!-- ==========================================================================
+             VIEW: SERVICE & WARRANTY
+             ========================================================================== -->
+        <section id="view-service" class="view-section">
+          <div class="table-container">
+            <div class="table-toolbar">
+              <div class="toolbar-filters">
+                <div class="table-search-box">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="text" class="table-search-input" placeholder="Search tickets by issue, client..." oninput="ServiceTickets.search(this.value)">
+                </div>
+
+                <select id="service-filter-status" class="table-select" onchange="ServiceTickets.filterStatus(this.value)">
+                  <option value="">All Statuses</option>
+                  <option value="OPEN">Open</option>
+                  <option value="IN_PROGRESS">In Progress</option>
+                  <option value="WAITING">Waiting on Client</option>
+                  <option value="RESOLVED">Resolved</option>
+                  <option value="CLOSED">Closed</option>
+                </select>
+
+                <select id="service-filter-priority" class="table-select" onchange="ServiceTickets.filterPriority(this.value)">
+                  <option value="">All Priorities</option>
+                  <option value="URGENT">Urgent</option>
+                  <option value="HIGH">High</option>
+                  <option value="MEDIUM">Medium</option>
+                  <option value="LOW">Low</option>
+                </select>
+              </div>
+
+              <button class="btn btn-primary btn-sm" onclick="ServiceTickets.openCreateModal()">+ Open Ticket</button>
+            </div>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Ticket #</th>
+                  <th>Issue Summary &amp; Client</th>
+                  <th>Priority</th>
+                  <th>Status</th>
+                  <th>Target Due Date</th>
+                  <th>Assigned Specialist</th>
+                  <th style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="service-table-body"></tbody>
+            </table>
+
+            <div class="table-pagination" id="service-pagination"></div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ==========================================================================
+       MODALS & DRAWERS
+       ========================================================================== -->
+
+  <!-- 1. Lead Create/Edit Modal -->
+  <div id="modal-lead-form" class="modal-backdrop">
+    <div class="modal-box modal-lg">
+      <div class="modal-header">
+        <h3 class="modal-title" id="lead-modal-title">Create New Opportunity</h3>
+        <button class="btn-modal-close" onclick="Modal.close('modal-lead-form')">&times;</button>
+      </div>
+      <form id="lead-form" onsubmit="Leads.saveLead(event)">
+        <input type="hidden" id="lead-form-id">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="lead-name">Contact Person <span class="required-mark">*</span></label>
+              <input type="text" id="lead-name" class="form-input" required placeholder="e.g. Lydia Fontaine">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="lead-company">Company / Account Name</label>
+              <input type="text" id="lead-company" class="form-input" placeholder="Fontaine Estate Winery">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="lead-email">Email Address</label>
+              <input type="email" id="lead-email" class="form-input" placeholder="lydia@domain.com">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="lead-phone">Phone Number</label>
+              <input type="text" id="lead-phone" class="form-input" placeholder="+1 (555) 000-0000">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="lead-source">Lead Source</label>
+              <select id="lead-source" class="form-select">
+                <option value="Website">Website Inbound</option>
+                <option value="Referral">Partner Referral</option>
+                <option value="Cold Outreach">Cold Outreach</option>
+                <option value="Exhibition">Industry Exhibition</option>
+                <option value="Direct">Direct Contact</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="lead-location">Location / Facility</label>
+              <input type="text" id="lead-location" class="form-input" placeholder="Napa Valley, CA">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="lead-est-val">Estimated Project Value (₹)</label>
+              <input type="number" step="0.01" id="lead-est-val" class="form-input" placeholder="250000">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="lead-status">Pipeline Stage</label>
+              <select id="lead-status" class="form-select">
+                <option value="NEW">New (Uncontacted)</option>
+                <option value="CONTACTED">Contacted</option>
+                <option value="QUALIFIED">Qualified</option>
+                <option value="SURVEY_SCHEDULED">Survey Scheduled</option>
+                <option value="QUOTE_SENT">Quote Sent</option>
+                <option value="WON">Won / Converted</option>
+                <option value="LOST">Lost</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="lead-assigned-user">Assigned Staff</label>
+              <select id="lead-assigned-user" class="form-select"></select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="lead-customer">Existing Client Account (Optional)</label>
+              <select id="lead-customer" class="form-select"></select>
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="lead-requirement">Technical Requirements / Scope</label>
+              <textarea id="lead-requirement" class="form-textarea" placeholder="Detail the climate control, HVAC, power or engineering requirements..."></textarea>
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="lead-notes">Internal Strategy Notes</label>
+              <textarea id="lead-notes" class="form-textarea" placeholder="Internal remarks, next steps..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="Modal.close('modal-lead-form')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Lead Record</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. Lead Detail Drawer -->
+  <div id="drawer-lead-detail" class="drawer-backdrop">
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <h3 class="modal-title">Opportunity File</h3>
+        <button class="btn-modal-close" onclick="Modal.close('drawer-lead-detail')">&times;</button>
+      </div>
+      <div class="drawer-body" id="lead-drawer-content"></div>
+    </div>
+  </div>
+
+  <!-- 3. Site Survey Modal -->
+  <div id="modal-survey-form" class="modal-backdrop">
+    <div class="modal-box modal-lg">
+      <div class="modal-header">
+        <h3 class="modal-title" id="survey-modal-title">Schedule Site Survey</h3>
+        <button class="btn-modal-close" onclick="Modal.close('modal-survey-form')">&times;</button>
+      </div>
+      <form id="survey-form" onsubmit="Surveys.saveSurvey(event)">
+        <input type="hidden" id="survey-form-id">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="survey-customer">Client Account <span class="required-mark">*</span></label>
+              <select id="survey-customer" class="form-select" required></select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="survey-lead">Originating Lead</label>
+              <select id="survey-lead" class="form-select"></select>
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="survey-address">Site Location / Address <span class="required-mark">*</span></label>
+              <input type="text" id="survey-address" class="form-input" required placeholder="450 Innovation Parkway, Suite 300">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="survey-date">Appointment Date <span class="required-mark">*</span></label>
+              <input type="date" id="survey-date" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="survey-time">Time</label>
+              <input type="text" id="survey-time" class="form-input" placeholder="10:00 AM">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="survey-assigned-user">Field Lead / Specialist</label>
+              <select id="survey-assigned-user" class="form-select"></select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="survey-status">Appointment Status</label>
+              <select id="survey-status" class="form-select">
+                <option value="SCHEDULED">Scheduled</option>
+                <option value="COMPLETED">Completed</option>
+                <option value="CANCELLED">Cancelled</option>
+              </select>
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="survey-measurements">Measurements &amp; Dimensions</label>
+              <textarea id="survey-measurements" class="form-textarea" placeholder="Laser dimensions, square footage, electrical service amperage..."></textarea>
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="survey-notes">Special Instructions</label>
+              <textarea id="survey-notes" class="form-textarea" placeholder="Safety gear required, security check-in protocols..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="Modal.close('modal-survey-form')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Appointment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. Complete Survey Modal -->
+  <div id="modal-complete-survey" class="modal-backdrop">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">Record Survey Findings</h3>
+        <button class="btn-modal-close" onclick="Modal.close('modal-complete-survey')">&times;</button>
+      </div>
+      <form onsubmit="Surveys.submitCompleteSurvey(event)">
+        <input type="hidden" id="complete-survey-id">
+        <div class="modal-body">
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label" for="complete-survey-measurements">Measured Technical Dimensions</label>
+            <textarea id="complete-survey-measurements" class="form-textarea" placeholder="Total area: 84,000 sq ft. Substation rating: 2.4 MW..."></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="complete-survey-notes">Completion Report &amp; Next Steps</label>
+            <textarea id="complete-survey-notes" class="form-textarea" placeholder="Site verified suitable for rooftop modular chiller installation..."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="Modal.close('modal-complete-survey')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Mark as Completed</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 5. Quote Modal -->
+  <div id="modal-quote-form" class="modal-backdrop">
+    <div class="modal-box modal-lg">
+      <div class="modal-header">
+        <h3 class="modal-title" id="quote-modal-title">Generate Commercial Proposal</h3>
+        <button class="btn-modal-close" onclick="Modal.close('modal-quote-form')">&times;</button>
+      </div>
+      <form id="quote-form" onsubmit="Quotes.saveQuote(event)">
+        <input type="hidden" id="quote-form-id">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="quote-customer">Client Account <span class="required-mark">*</span></label>
+              <select id="quote-customer" class="form-select" required></select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="quote-lead">Source Lead</label>
+              <select id="quote-lead" class="form-select"></select>
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="quote-project-type">Proposal Title / Solution Type <span class="required-mark">*</span></label>
+              <input type="text" id="quote-project-type" class="form-input" required placeholder="e.g. Cleanroom Mechanical Retrofit">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="quote-amount">Quoted Gross Amount (₹) <span class="required-mark">*</span></label>
+              <input type="number" step="0.01" id="quote-amount" class="form-input" required placeholder="385000">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="quote-cost">Direct Material &amp; Labor Cost (₹) <span class="required-mark">*</span></label>
+              <input type="number" step="0.01" id="quote-cost" class="form-input" required placeholder="240000">
+            </div>
+
+            <div class="form-group col-span-2" style="background: var(--paper-subtle); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <div class="flex justify-between items-center">
+                <span style="font-size: 0.8rem; font-weight: 600;">Profitability Calculation:</span>
+                <span id="quote-margin-calc" style="font-family: var(--font-mono); font-weight: 600; font-size: 0.9rem;">Margin: $0.00 (0.00%)</span>
+              </div>
+              <div id="quote-margin-warning" class="text-clay font-semibold" style="display: none; font-size: 0.75rem; margin-top: 0.35rem;">
+                ⚠️ Warning: Gross margin is below the 15% threshold.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="quote-status">Proposal Status</label>
+              <select id="quote-status" class="form-select">
+                <option value="DRAFT">Draft</option>
+                <option value="SENT">Sent to Client</option>
+                <option value="VIEWED">Viewed by Client</option>
+                <option value="ACCEPTED">Accepted / Signed</option>
+                <option value="REJECTED">Rejected</option>
+                <option value="EXPIRED">Expired</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="quote-valid-until">Offer Valid Until</label>
+              <input type="date" id="quote-valid-until" class="form-input">
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="quote-assigned-user">Assigned Solutions Architect</label>
+              <select id="quote-assigned-user" class="form-select"></select>
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="quote-description">Commercial Proposal Description</label>
+              <textarea id="quote-description" class="form-textarea" placeholder="Detailed scope of supply, equipment specifications, warranties..."></textarea>
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="quote-notes">Internal Discounting / Vendor Notes</label>
+              <textarea id="quote-notes" class="form-textarea" placeholder="Vendor quote references, special payment terms..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="Modal.close('modal-quote-form')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Proposal</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 6. Quote Drawer -->
+  <div id="drawer-quote-detail" class="drawer-backdrop">
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <h3 class="modal-title">Proposal Overview</h3>
+        <button class="btn-modal-close" onclick="Modal.close('drawer-quote-detail')">&times;</button>
+      </div>
+      <div class="drawer-body" id="quote-drawer-content"></div>
+    </div>
+  </div>
+
+  <!-- 7. Project Modal -->
+  <div id="modal-project-form" class="modal-backdrop">
+    <div class="modal-box modal-lg">
+      <div class="modal-header">
+        <h3 class="modal-title" id="project-modal-title">Initiate Project</h3>
+        <button class="btn-modal-close" onclick="Modal.close('modal-project-form')">&times;</button>
+      </div>
+      <form id="project-form" onsubmit="Projects.saveProject(event)">
+        <input type="hidden" id="project-form-id">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="project-customer">Client Account <span class="required-mark">*</span></label>
+              <select id="project-customer" class="form-select" required></select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="project-quote">Accepted Quote Reference</label>
+              <select id="project-quote" class="form-select"></select>
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="project-name">Project Name <span class="required-mark">*</span></label>
+              <input type="text" id="project-name" class="form-input" required placeholder="e.g. Sterling Logistics Microgrid Phase 1">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="project-location">Site Location</label>
+              <input type="text" id="project-location" class="form-input" placeholder="Oakland, CA">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="project-budget">Contract Budget (₹)</label>
+              <input type="number" step="0.01" id="project-budget" class="form-input" placeholder="620000">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="project-start-date">Mobilization Start Date</label>
+              <input type="date" id="project-start-date" class="form-input">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="project-expected-completion">Target Commissioning Date</label>
+              <input type="date" id="project-expected-completion" class="form-input">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="project-progress">Completion Progress (%)</label>
+              <input type="number" min="0" max="100" id="project-progress" class="form-input" placeholder="0">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="project-status">Execution Status</label>
+              <select id="project-status" class="form-select">
+                <option value="PLANNED">Planned</option>
+                <option value="IN_PROGRESS">In Progress</option>
+                <option value="DELAYED">Delayed</option>
+                <option value="COMPLETED">Completed</option>
+                <option value="CANCELLED">Cancelled</option>
+              </select>
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="project-assigned-user">Field Project Director</label>
+              <select id="project-assigned-user" class="form-select"></select>
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="project-notes">Engineering Status &amp; Notes</label>
+              <textarea id="project-notes" class="form-textarea" placeholder="Module deliveries, utility grid approvals..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="Modal.close('modal-project-form')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 8. Project Drawer -->
+  <div id="drawer-project-detail" class="drawer-backdrop">
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <h3 class="modal-title">Project Execution File</h3>
+        <button class="btn-modal-close" onclick="Modal.close('drawer-project-detail')">&times;</button>
+      </div>
+      <div class="drawer-body" id="project-drawer-content"></div>
+    </div>
+  </div>
+
+  <!-- 9. Payment Modal -->
+  <div id="modal-payment-form" class="modal-backdrop">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" id="payment-modal-title">Issue Milestone Invoice</h3>
+        <button class="btn-modal-close" onclick="Modal.close('modal-payment-form')">&times;</button>
+      </div>
+      <form id="payment-form" onsubmit="Payments.savePayment(event)">
+        <input type="hidden" id="payment-form-id">
+        <div class="modal-body">
+          <div class="form-grid grid-1">
+            <div class="form-group">
+              <label class="form-label" for="payment-customer">Client Account <span class="required-mark">*</span></label>
+              <select id="payment-customer" class="form-select" required></select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="payment-project">Project Implementation</label>
+              <select id="payment-project" class="form-select"></select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="payment-amount">Invoice Amount (₹) <span class="required-mark">*</span></label>
+              <input type="number" step="0.01" id="payment-amount" class="form-input" required placeholder="185000">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="payment-due-date">Due Date <span class="required-mark">*</span></label>
+              <input type="date" id="payment-due-date" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="payment-status">Invoice Status</label>
+              <select id="payment-status" class="form-select">
+                <option value="DUE">Due</option>
+                <option value="PENDING">Pending</option>
+                <option value="PAID">Paid</option>
+                <option value="OVERDUE">Overdue</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="payment-method">Payment Method</label>
+              <select id="payment-method" class="form-select">
+                <option value="Bank Transfer">Bank Wire Transfer</option>
+                <option value="Stripe">Stripe / Credit Card</option>
+                <option value="Cheque">Commercial Cheque</option>
+                <option value="ACH">ACH Direct Debit</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="payment-ref">Reference # / Invoice Code</label>
+              <input type="text" id="payment-ref" class="form-input" placeholder="INV-2026-091-M1">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="payment-notes">Billing Notes</label>
+              <textarea id="payment-notes" class="form-textarea" placeholder="Milestone 1 deposit..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="Modal.close('modal-payment-form')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Invoice</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 10. Mark Paid Modal -->
+  <div id="modal-mark-paid" class="modal-backdrop">
+    <div class="modal-box" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Record Payment Receipt</h3>
+        <button class="btn-modal-close" onclick="Modal.close('modal-mark-paid')">&times;</button>
+      </div>
+      <form onsubmit="Payments.submitMarkPaid(event)">
+        <input type="hidden" id="mark-paid-id">
+        <div class="modal-body">
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label" for="mark-paid-method">Payment Clearance Method</label>
+            <select id="mark-paid-method" class="form-select">
+              <option value="Wire Transfer">Bank Wire Transfer</option>
+              <option value="Stripe">Stripe / Card Gateway</option>
+              <option value="Cheque">Commercial Cheque</option>
+              <option value="ACH">ACH Direct</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="mark-paid-ref">Transaction Reference</label>
+            <input type="text" id="mark-paid-ref" class="form-input" placeholder="WIRE-2026-981023">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="Modal.close('modal-mark-paid')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Confirm Receipt</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 11. Customer Modal -->
+  <div id="modal-customer-form" class="modal-backdrop">
+    <div class="modal-box modal-lg">
+      <div class="modal-header">
+        <h3 class="modal-title" id="customer-modal-title">Add Client Account</h3>
+        <button class="btn-modal-close" onclick="Modal.close('modal-customer-form')">&times;</button>
+      </div>
+      <form id="customer-form" onsubmit="Customers.saveCustomer(event)">
+        <input type="hidden" id="customer-form-id">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="customer-name">Primary Contact Name <span class="required-mark">*</span></label>
+              <input type="text" id="customer-name" class="form-input" required placeholder="e.g. Julian Thorne">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="customer-company">Organization / Company</label>
+              <input type="text" id="customer-company" class="form-input" placeholder="Aetheric BioLabs Inc.">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="customer-email">Email Address <span class="required-mark">*</span></label>
+              <input type="email" id="customer-email" class="form-input" required placeholder="j.thorne@company.com">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="customer-phone">Phone Number</label>
+              <input type="text" id="customer-phone" class="form-input" placeholder="+1 (555) 249-8810">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="customer-city">City / Region</label>
+              <input type="text" id="customer-city" class="form-input" placeholder="San Francisco, CA">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="customer-status">Account Status</label>
+              <select id="customer-status" class="form-select">
+                <option value="ACTIVE">Active Tier-1 Client</option>
+                <option value="INACTIVE">Inactive</option>
+                <option value="LEAD">Prospect</option>
+              </select>
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="customer-address">Headquarters Address</label>
+              <input type="text" id="customer-address" class="form-input" placeholder="450 Innovation Parkway, Suite 300">
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="customer-notes">Account Portfolio Notes</label>
+              <textarea id="customer-notes" class="form-textarea" placeholder="Key decision makers, compliance certificates..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="Modal.close('modal-customer-form')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Account</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 12. Customer 360 Drawer -->
+  <div id="drawer-customer-360" class="drawer-backdrop">
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <h3 class="modal-title">Customer 360° Profile</h3>
+        <button class="btn-modal-close" onclick="Modal.close('drawer-customer-360')">&times;</button>
+      </div>
+      <div class="drawer-body" id="customer-360-content"></div>
+    </div>
+  </div>
+
+  <!-- 13. Service Ticket Modal -->
+  <div id="modal-service-form" class="modal-backdrop">
+    <div class="modal-box modal-lg">
+      <div class="modal-header">
+        <h3 class="modal-title" id="service-modal-title">Open Service / Warranty Case</h3>
+        <button class="btn-modal-close" onclick="Modal.close('modal-service-form')">&times;</button>
+      </div>
+      <form id="service-form" onsubmit="ServiceTickets.saveServiceTicket(event)">
+        <input type="hidden" id="service-form-id">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="service-customer">Customer Account <span class="required-mark">*</span></label>
+              <select id="service-customer" class="form-select" required></select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="service-project">Installed System Project</label>
+              <select id="service-project" class="form-select"></select>
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="service-issue">Issue Title / Diagnostic <span class="required-mark">*</span></label>
+              <input type="text" id="service-issue" class="form-input" required placeholder="e.g. Chiller Sensor Calibration Offset">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="service-priority">Urgency Priority</label>
+              <select id="service-priority" class="form-select">
+                <option value="LOW">Low</option>
+                <option value="MEDIUM" selected>Medium</option>
+                <option value="HIGH">High</option>
+                <option value="URGENT">Urgent (Immediate Dispatch)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="service-status">Case Status</label>
+              <select id="service-status" class="form-select">
+                <option value="OPEN">Open</option>
+                <option value="IN_PROGRESS">In Progress</option>
+                <option value="WAITING">Waiting on Client</option>
+                <option value="RESOLVED">Resolved</option>
+                <option value="CLOSED">Closed</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="service-due-date">Target Resolution Date</label>
+              <input type="date" id="service-due-date" class="form-input">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="service-assigned-user">Service Specialist</label>
+              <select id="service-assigned-user" class="form-select"></select>
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="service-description">Detailed Diagnostic Symptoms</label>
+              <textarea id="service-description" class="form-textarea" placeholder="Temperature sensor on loop B showing 2.4°C divergence..."></textarea>
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label" for="service-resolution">Resolution Log</label>
+              <textarea id="service-resolution" class="form-textarea" placeholder="Technician dispatched with calibrated thermal probes..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="Modal.close('modal-service-form')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Ticket</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL: CSV SMART IMPORT WIZARD & COLUMN MAPPER
+       ========================================================================== -->
+  <div class="modal-backdrop" id="modal-csv-import">
+    <div class="modal-container" style="max-width: 680px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-csv-import-title">Import Records via CSV</h3>
+        <button class="modal-close" onclick="Modal.close('modal-csv-import')">&times;</button>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Dropzone -->
+        <div class="csv-dropzone" id="csv-dropzone" onclick="document.getElementById('csv-file-input').click()" 
+             ondragover="event.preventDefault(); this.classList.add('dragover');" 
+             ondragleave="this.classList.remove('dragover');" 
+             ondrop="event.preventDefault(); this.classList.remove('dragover'); DataPortability.handleFileSelect(event.dataTransfer.files[0]);">
+          <input type="file" id="csv-file-input" accept=".csv,text/csv" style="display:none;" onchange="DataPortability.handleFileSelect(this.files[0])">
+          <div class="csv-dropzone-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          </div>
+          <div class="csv-dropzone-title">Click to upload or drag &amp; drop CSV file</div>
+          <div class="csv-dropzone-sub">Supports UTF-8 CSV exports from Salesforce, HubSpot, or Excel</div>
+        </div>
+
+        <!-- Column Mapping Section -->
+        <div id="csv-mapping-section" style="display: none;">
+          <div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--dark);">
+            Map CSV Columns to System Fields
+          </div>
+          <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 0.75rem;">
+            Match your CSV headers to the appropriate database fields. Required fields are marked with (*).
+          </p>
+          <table class="column-mapping-table">
+            <thead>
+              <tr>
+                <th>CRM Field</th>
+                <th>Matched CSV Header Column</th>
+              </tr>
+            </thead>
+            <tbody id="csv-mapping-table-body">
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Live Validation Preview Section -->
+        <div id="csv-preview-section" style="display: none; margin-top: 1.25rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-weight: 600; font-size: 0.85rem; color: var(--dark);">Data Preview (First 5 Rows)</span>
+            <span id="csv-parsed-rows-count" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--green);">0 rows</span>
+          </div>
+          <div class="import-preview-table-wrapper">
+            <table class="import-preview-table">
+              <thead id="csv-preview-thead"></thead>
+              <tbody id="csv-preview-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="Modal.close('modal-csv-import')">Cancel</button>
+        <button type="button" class="btn btn-primary" id="btn-commit-csv-import" style="display: none;" onclick="DataPortability.commitImport()">Commit Import</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FLOATING BULK ACTIONS TOOLBAR
+       ========================================================================== -->
+  <div id="bulk-floating-bar" class="bulk-floating-bar">
+    <div class="bulk-selection-count">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      <span id="bulk-selected-count-label">0 items selected</span>
+    </div>
+    <div class="bulk-actions-group">
+      <button type="button" class="btn-bulk" onclick="DataPortability.exportSelected()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export Selected
+      </button>
+
+      <button type="button" class="btn-bulk" onclick="const s = prompt('Enter new status (e.g. QUALIFIED, ACTIVE, PAID):'); if(s) DataPortability.executeBulkStatusUpdate(s.trim().toUpperCase());">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        Update Status
+      </button>
+
+      <button type="button" class="btn-bulk btn-bulk-danger" onclick="DataPortability.executeBulkDelete()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        Delete
+      </button>
+
+      <button type="button" class="btn-bulk-close" title="Clear selection" onclick="DataPortability.clearSelection()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/api.js"></script>
+  <script src="/js/toast.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/modal.js"></script>
+  <script src="/js/dashboard.js"></script>
+  <script src="/js/analytics.js"></script>
+  <script src="/js/data-portability.js"></script>
+  <script src="/js/leads.js"></script>
+  <script src="/js/surveys.js"></script>
+  <script src="/js/quotes.js"></script>
+  <script src="/js/projects.js"></script>
+  <script src="/js/payments.js"></script>
+  <script src="/js/customers.js"></script>
+  <script src="/js/service.js"></script>
+  <script src="/js/search.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
+

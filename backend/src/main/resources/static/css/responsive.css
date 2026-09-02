@@ -1,0 +1,117 @@
+/* ==========================================================================
+   RESPONSIVE ADAPTATIONS - TABLET & MOBILE
+   ========================================================================== */
+
+/* Mobile Sidebar Toggle Button */
+.btn-mobile-menu {
+  display: none;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 0.45rem;
+  border-radius: var(--radius-sm);
+  color: var(--dark);
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-split-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-breakdown-grid {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1rem;
+  }
+
+  .hero-breakdown-grid .breakdown-item:nth-child(3) {
+    border-right: none;
+  }
+
+  .pipeline-steps-wrapper {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .pipeline-steps-wrapper::before {
+    min-width: 500px;
+  }
+
+  .pipeline-step-item {
+    min-width: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn-mobile-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .app-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .app-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .app-topbar {
+    padding: 0 1rem;
+  }
+
+  .search-input-wrapper {
+    width: 180px;
+  }
+
+  .page-container {
+    padding: 1.25rem 1rem;
+  }
+
+  .hero-metric-card {
+    padding: 1.25rem;
+  }
+
+  .hero-amount-number {
+    font-size: 2.1rem;
+  }
+
+  .hero-breakdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-breakdown-grid .breakdown-item {
+    border-right: none;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 0.65rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.col-span-2 {
+    grid-column: span 1;
+  }
+
+  .auth-container {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-brand-panel {
+    display: none;
+  }
+
+  .auth-form-panel {
+    padding: 2rem 1.5rem;
+  }
+
+  .drawer-panel {
+    max-width: 100%;
+  }
+}

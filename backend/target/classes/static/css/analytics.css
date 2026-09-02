@@ -1,0 +1,568 @@
+/* ==========================================================================
+   ANALYTICS & GROWTH TRENDS STYLES
+   Verdant CRM - Dedicated Business Intelligence & Growth Engine
+   ========================================================================== */
+
+.analytics-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Header & Timeframe Bar */
+.analytics-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.analytics-header-info h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 0.25rem;
+}
+
+.analytics-header-info p {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.timeframe-pill-group {
+  display: inline-flex;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 3px;
+  gap: 2px;
+}
+
+.timeframe-pill {
+  border: none;
+  background: transparent;
+  padding: 0.45rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--muted);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.timeframe-pill:hover {
+  color: var(--dark);
+}
+
+.timeframe-pill.active {
+  background: var(--paper);
+  color: var(--green);
+  font-weight: 600;
+  box-shadow: var(--shadow-xs);
+}
+
+/* Growth KPI Grid */
+.growth-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.growth-kpi-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.growth-kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.growth-kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--border);
+}
+
+.growth-kpi-card.kpi-primary::before { background: var(--green); }
+.growth-kpi-card.kpi-sun::before { background: var(--sun); }
+.growth-kpi-card.kpi-clay::before { background: var(--clay); }
+.growth-kpi-card.kpi-blue::before { background: var(--blue); }
+
+.kpi-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.kpi-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.kpi-delta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+}
+
+.kpi-delta-pill.positive {
+  background: var(--green-subtle);
+  color: var(--green);
+  border: 1px solid var(--green-border);
+}
+
+.kpi-delta-pill.warning {
+  background: var(--sun-subtle);
+  color: var(--sun);
+  border: 1px solid var(--sun-border);
+}
+
+.kpi-delta-pill.neutral {
+  background: var(--blue-subtle);
+  color: var(--blue);
+  border: 1px solid var(--blue-border);
+}
+
+.kpi-value-display {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.kpi-caption {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Charts Grid */
+.analytics-chart-grid-2col {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 1.5rem;
+}
+
+.analytics-chart-grid-even {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.chart-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.chart-title-area h3 {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chart-title-area p {
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.chart-legend-custom {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--muted);
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.35rem;
+}
+
+.chart-canvas-container {
+  position: relative;
+  width: 100%;
+  height: 280px;
+}
+
+.chart-canvas-container.tall {
+  height: 320px;
+}
+
+/* Pipeline Conversion Funnel Visuals */
+.funnel-step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.funnel-step-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.funnel-step-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8125rem;
+}
+
+.funnel-step-name {
+  font-weight: 600;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.funnel-step-counts {
+  font-family: var(--font-mono);
+  color: var(--muted);
+}
+
+.funnel-bar-track {
+  height: 10px;
+  background: var(--cream);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.funnel-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--green), var(--sun));
+  transition: width 0.8s ease;
+}
+
+.funnel-step-rate {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--green);
+}
+
+/* Loss Factor Reason Bars */
+.loss-reasons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.loss-reason-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.85rem;
+  background: var(--cream-alt);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+}
+
+.loss-reason-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--dark-light);
+}
+
+.loss-reason-pill {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--clay);
+  background: var(--clay-subtle);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-full);
+}
+
+/* Aging Bucket Cards */
+.aging-buckets-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.aging-bucket-box {
+  border-radius: var(--radius);
+  padding: 1rem;
+  border: 1px solid var(--border);
+  background: var(--cream-alt);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.aging-bucket-box.low { border-top: 3px solid var(--green); }
+.aging-bucket-box.medium { border-top: 3px solid var(--sun); }
+.aging-bucket-box.high { border-top: 3px solid var(--clay); }
+.aging-bucket-box.critical { border-top: 3px solid var(--danger); }
+
+.aging-bucket-box .bucket-name {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.aging-bucket-box .bucket-amount {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.aging-bucket-box .bucket-count {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   DATA PORTABILITY & BULK ACTIONS STYLES
+   ========================================================================== */
+
+/* Floating Bulk Action Bar */
+.bulk-floating-bar {
+  position: fixed;
+  bottom: 24px;
+  left: calc(var(--sidebar-width) + 50%);
+  transform: translateX(-50%) translateY(120px);
+  background: var(--moss);
+  color: var(--moss-text);
+  border: 1px solid var(--moss-border);
+  border-radius: var(--radius-full);
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  transition: transform var(--transition-smooth);
+}
+
+.bulk-floating-bar.active {
+  transform: translateX(-50%) translateY(0);
+}
+
+.bulk-selection-count {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--sun);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bulk-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.btn-bulk {
+  background: var(--moss-light);
+  border: 1px solid var(--moss-border);
+  color: #ffffff;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+}
+
+.btn-bulk:hover {
+  background: var(--moss-hover);
+  border-color: var(--green);
+}
+
+.btn-bulk-danger:hover {
+  border-color: var(--danger);
+  color: #ff9999;
+}
+
+.btn-bulk-close {
+  background: transparent;
+  border: none;
+  color: var(--moss-muted);
+  cursor: pointer;
+  padding: 0.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.btn-bulk-close:hover {
+  color: #ffffff;
+}
+
+/* CSV Import Modal & Column Mapper */
+.csv-dropzone {
+  border: 2px dashed var(--border);
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.csv-dropzone:hover, .csv-dropzone.dragover {
+  border-color: var(--green);
+  background: var(--green-subtle);
+}
+
+.csv-dropzone-icon {
+  margin-bottom: 0.75rem;
+  color: var(--green);
+}
+
+.csv-dropzone-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 0.25rem;
+}
+
+.csv-dropzone-sub {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.column-mapping-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.column-mapping-table th {
+  background: var(--cream-alt);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.column-mapping-table td {
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 0.85rem;
+}
+
+.import-preview-table-wrapper {
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-top: 1rem;
+}
+
+.import-preview-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.import-preview-table th {
+  position: sticky;
+  top: 0;
+  background: var(--cream);
+  font-family: var(--font-mono);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.import-preview-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border-light);
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .growth-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .analytics-chart-grid-2col,
+  .analytics-chart-grid-even {
+    grid-template-columns: 1fr;
+  }
+  .aging-buckets-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .growth-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+  .aging-buckets-row {
+    grid-template-columns: 1fr;
+  }
+}
