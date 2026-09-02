@@ -33,10 +33,12 @@ const App = {
     // Update Sidebar active state
     document.querySelectorAll('.nav-item').forEach(el => {
       const target = el.getAttribute('data-view');
-      if (target === viewName) {
-        el.classList.add('active');
+      const isActive = target === viewName;
+      el.classList.toggle('active', isActive);
+      if (isActive) {
+        el.setAttribute('aria-current', 'page');
       } else {
-        el.classList.remove('active');
+        el.removeAttribute('aria-current');
       }
     });
 
@@ -56,10 +58,7 @@ const App = {
     // Load data for active view
     this.loadViewData(viewName, queryString);
 
-    // Close mobile drawer if open
-    // Close mobile drawer if open
-    const sidebar = document.getElementById('app-sidebar');
-    if (sidebar) sidebar.classList.remove('mobile-open');
+    this.closeMobileSidebar();
 
     // Clear bulk selections on route change
     if (window.DataPortability) {
@@ -215,14 +214,34 @@ const App = {
     const sidebar = document.getElementById('app-sidebar');
     if (sidebar) {
       sidebar.classList.toggle('mobile-open');
+      this.syncSidebarBackdrop();
     }
   },
 
+  closeMobileSidebar() {
+    const sidebar = document.getElementById('app-sidebar');
+    if (sidebar) sidebar.classList.remove('mobile-open');
+    this.syncSidebarBackdrop();
+  },
+
+  syncSidebarBackdrop() {
+    const sidebar = document.getElementById('app-sidebar');
+    const backdrop = document.getElementById('sidebar-backdrop');
+    if (!backdrop || !sidebar) return;
+    const open = sidebar.classList.contains('mobile-open');
+    backdrop.hidden = !open;
+    backdrop.classList.toggle('is-visible', open);
+  },
+
   setupEventListeners() {
-    // Mobile sidebar hamburger
     const btnMobile = document.getElementById('btn-mobile-sidebar');
     if (btnMobile) {
       btnMobile.addEventListener('click', () => this.toggleMobileSidebar());
+    }
+
+    const backdrop = document.getElementById('sidebar-backdrop');
+    if (backdrop) {
+      backdrop.addEventListener('click', () => this.closeMobileSidebar());
     }
 
     // Modal forms live calculations
