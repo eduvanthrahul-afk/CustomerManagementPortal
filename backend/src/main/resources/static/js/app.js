@@ -90,6 +90,12 @@ const App = {
         actionText: '+ New Lead',
         actionFn: () => Leads.openCreateModal()
       },
+      kanban: {
+        title: 'Kanban Board',
+        breadcrumb: 'Flow / Kanban',
+        actionText: '+ New Lead',
+        actionFn: () => Leads.openCreateModal()
+      },
       surveys: {
         title: 'Site Surveys & Appointments',
         breadcrumb: 'Flow / Site Surveys',
@@ -154,6 +160,9 @@ const App = {
           Leads.currentStatus = status;
         }
         Leads.load(0);
+        break;
+      case 'kanban':
+        Kanban.load();
         break;
       case 'surveys':
         if (queryString && queryString.includes('status=')) {

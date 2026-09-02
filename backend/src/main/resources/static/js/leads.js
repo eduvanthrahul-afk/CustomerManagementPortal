@@ -219,6 +219,7 @@ const Leads = {
       Modal.close('modal-lead-form');
       this.load(this.currentPage);
       Dashboard.load();
+      if (window.Kanban) Kanban.load();
     } catch (err) {
       Toast.error(err.message || 'Failed to save lead');
     }
@@ -293,6 +294,7 @@ const Leads = {
       Toast.success('Contact activity logged');
       this.load(this.currentPage);
       Dashboard.load();
+      if (window.Kanban) Kanban.load();
       Modal.close('drawer-lead-detail');
     } catch (err) {
       Toast.error('Failed to update lead contact status');
@@ -306,6 +308,7 @@ const Leads = {
         Toast.success('Lead deleted successfully');
         this.load(this.currentPage);
         Dashboard.load();
+        if (window.Kanban) Kanban.load();
       } catch (err) {
         Toast.error(err.message || 'Failed to delete lead');
       }
